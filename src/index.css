@@ -1,0 +1,62 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-snap-red: #d71920;
+  --color-snap-red-dark: #b0141a;
+  --color-charcoal: #1c1c1e;
+  --color-charcoal-light: #2a2a2d;
+  --color-snap-black: #0a0a0b;
+  --color-snap-gray: #f4f4f5;
+  --color-snap-gray-mid: #a1a1aa;
+  --color-snap-gray-dark: #52525b;
+
+  --font-sans: 'Poppins', Inter, Montserrat, Roboto, system-ui, sans-serif;
+
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-white font-sans text-charcoal antialiased;
+  }
+
+  ::selection {
+    @apply bg-snap-red/20 text-charcoal;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-snap-red;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    @apply px-5 sm:px-8 lg:px-12 xl:px-16;
+  }
+
+  .section-y {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
